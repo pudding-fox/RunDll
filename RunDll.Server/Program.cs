@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace RunDll
 {
@@ -11,7 +8,9 @@ namespace RunDll
         public static void Main(string[] args)
         {
             var server = new Server();
+            Debugger.Launch();
             Console.WriteLine(server.Endpoint.Port);
+            server.Listen();
         }
     }
 }

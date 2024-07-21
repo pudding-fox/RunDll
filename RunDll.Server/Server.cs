@@ -17,6 +17,7 @@ namespace RunDll
         {
             this.Endpoint = new IPEndPoint(IPAddress.Loopback, GetPort());
             this.Socket = new Socket(this.Endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            this.Socket.Bind(this.Endpoint);
             this.Socket.Listen(BACKLOG);
         }
 
@@ -26,7 +27,7 @@ namespace RunDll
 
         public void Listen()
         {
-            while (this.Socket.Connected)
+            while (this.Socket.IsBound)
             {
                 var handler = this.Socket.Accept();
                 this.Handle(handler);

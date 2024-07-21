@@ -7,21 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RunDll.Client\RunDll.Client.csproj" />
-    <ProjectReference Include="..\RunDll.Core\RunDll.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="net48\" />
-    <Folder Include="net6.0\" />
+    <Compile Include="..\RunDll\Extensions.cs" Link="Extensions.cs" />
+    <Compile Include="..\RunDll\RunRequest.cs" Link="RunRequest.cs" />
+    <Compile Include="..\RunDll\RunResponse.cs" Link="RunResponse.cs" />
+    <Compile Include="..\RunDll\Serializer.cs" Link="Serializer.cs" />
   </ItemGroup>
 
 </Project>

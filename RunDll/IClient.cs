@@ -2,7 +2,7 @@
 
 namespace RunDll
 {
-    public interface IServer<T> : IDisposable
+    public interface IClient<T> : IDisposable
     {
         T Target { get; }
     }

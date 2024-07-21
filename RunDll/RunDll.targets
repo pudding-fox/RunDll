@@ -1,0 +1,18 @@
+<Project>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\net48\RunDll.Server.exe" Link="net48\RunDll.Server.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\net6.0\RunDll.Server.dll" Link="net6.0\RunDll.Server.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)\net6.0\RunDll.Server.exe" Link="net6.0\RunDll.Server.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)\net6.0\RunDll.Server.runtimeconfig.json" Link="net6.0\RunDll.Server.runtimeconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
