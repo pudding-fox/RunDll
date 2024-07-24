@@ -28,10 +28,21 @@ namespace RunDll
         {
             var assembly = Assembly.LoadFrom(request.Assembly);
             var type = assembly.GetType(request.Type);
-            var instance = Activator.CreateInstance(type);
+            var instance = GetTarget(ref type, Activator.CreateInstance(type), request.Config);
             var method = type.GetMethod(request.Method);
             var result = method.Invoke(instance, request.Arguments);
             return new RunResponse(result);
+        }
+
+        private static object GetTarget(ref Type type, object instance, object config)
+        {
+            var method = type.GetMethod("GetTarget");
+            if (method != null)
+            {
+                instance = method.Invoke(instance, new[] { config });
+                type = instance.GetType();
+            }
+            return instance;
         }
     }
 }

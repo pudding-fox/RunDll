@@ -6,7 +6,7 @@ using System.Net.Sockets;
 
 namespace RunDll
 {
-    public class Runner : IDisposable
+    public class Runner : IRunner
     {
         public Runner(Runtime runtime)
         {
@@ -47,9 +47,9 @@ namespace RunDll
 
         public IPEndPoint Endpoint { get; private set; }
 
-        public object Run(string assembly, string type, string method, object[] arguments)
+        public object Run(string assembly, string type, string method, object config, object[] arguments)
         {
-            var request = new RunRequest(assembly, type, method, arguments);
+            var request = new RunRequest(assembly, type, method, config, arguments);
             using (var socket = new Socket(this.Endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp))
             {
                 socket.Connect(this.Endpoint);

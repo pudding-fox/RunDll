@@ -4,20 +4,21 @@ using System.Reflection;
 
 namespace RunDll
 {
-    public class Mapping : Dictionary<Mapping.Key, Mapping.Value>
+    public class Mapping : Dictionary<Mapping.Key, Mapping.Value>, IMapping
     {
         public Mapping()
         {
 
         }
 
-        public void Resolve(MethodInfo method, out string assembly, out string type)
+        public void Resolve(MethodInfo method, out string assembly, out string type, out object config)
         {
             var key = new Key(method.DeclaringType.Assembly.Location, method.DeclaringType.AssemblyQualifiedName);
             var value = default(Value);
             this.TryGetValue(key, out value);
             assembly = value.Assembly;
             type = value.Type;
+            config = value.Config;
         }
 
         public class Key : IEquatable<Key>
@@ -83,20 +84,23 @@ namespace RunDll
 
         public class Value
         {
-            public Value(Type type) : this(type.Assembly.Location, type.AssemblyQualifiedName)
+            public Value(Type type, object config = null) : this(type.Assembly.Location, type.AssemblyQualifiedName, config)
             {
 
             }
 
-            public Value(string assembly, string type)
+            public Value(string assembly, string type, object config = null)
             {
                 this.Assembly = assembly;
                 this.Type = type;
+                this.Config = config;
             }
 
             public string Assembly { get; private set; }
 
             public string Type { get; private set; }
+
+            public object Config { get; private set; }
         }
     }
 }
