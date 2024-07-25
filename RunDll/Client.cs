@@ -1,7 +1,14 @@
-﻿namespace RunDll
+﻿using System.IO;
+
+namespace RunDll
 {
     public class Client<T> : IClient<T>
     {
+        public Client(IRunner runner) : this(runner, null)
+        {
+
+        }
+
         public Client(IRunner runner, IMapping mapping)
         {
             var target = default(T);
@@ -25,7 +32,15 @@
             var assembly = default(string);
             var type = default(string);
             var config = default(object);
-            this.Mapping.Resolve(e.Method, out assembly, out type, out config);
+            if (this.Mapping != null)
+            {
+                this.Mapping.Resolve(e.Method, out assembly, out type, out config);
+            }
+            else
+            {
+                assembly = Path.GetFileName(e.Method.DeclaringType.Assembly.Location);
+                type = e.Method.DeclaringType.FullName;
+            }
             e.ReturnValue = this.Runner.Run(assembly, type, e.Method.Name, config, e.Arguments);
         }
     }
