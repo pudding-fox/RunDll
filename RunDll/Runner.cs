@@ -8,22 +8,23 @@ namespace RunDll
 {
     public class Runner : IRunner
     {
+        public static readonly string Location = Path.GetDirectoryName(typeof(Runner).Assembly.Location);
+
         public Runner(Runtime runtime)
         {
             var directoryName = default(string);
             switch (runtime)
             {
                 case Runtime.NetCore:
-                    directoryName = "net6.0";
+                    directoryName = Path.Combine(Location, "net6.0");
                     break;
                 case Runtime.NetFramework:
-                    directoryName = "net48";
+                    directoryName = Path.Combine(Location, "net48");
                     break;
                 default:
                     throw new NotImplementedException();
             }
             var fileName = Path.Combine(
-                Path.GetDirectoryName(typeof(Runner).Assembly.Location),
                 directoryName,
                 "RunDll.Server.exe"
             );
