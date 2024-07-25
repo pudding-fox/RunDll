@@ -20,4 +20,30 @@
             return new TestClass1();
         }
     }
+
+    public class TestClass3Request
+    {
+        public string Name { get; set; }
+    }
+
+    public class TestClass3Response
+    {
+        public string Message { get; set; }
+    }
+
+    public interface ITestClass3
+    {
+        TestClass3Response Hello(TestClass3Request request);
+    }
+
+    public class TestClass3 : ITestClass3
+    {
+        public TestClass3Response Hello(TestClass3Request request)
+        {
+            return new TestClass3Response()
+            {
+                Message = string.Concat("Hello ", request.Name, "!")
+            };
+        }
+    }
 }

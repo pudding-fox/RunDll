@@ -64,7 +64,7 @@ namespace RunDll
                 {
                     types = e.Types;
                 }
-                catch (Exception e)
+                catch
                 {
                     continue;
                 }
@@ -106,7 +106,7 @@ namespace RunDll
                 {
                     types = e.Types;
                 }
-                catch (Exception e)
+                catch 
                 {
                     continue;
                 }

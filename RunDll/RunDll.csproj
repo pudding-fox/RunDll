@@ -5,7 +5,7 @@
     <OutputPath>..\distribution\</OutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>..\distribution\</PackageOutputPath>
-    <PackageVersion>1.0.8</PackageVersion>
+    <PackageVersion>2.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
@@ -13,12 +13,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\distribution\net48\RunDll.Common.dll" Link="net48\RunDll.Common.dll" PackagePath="build\net48">
+      <Pack>true</Pack>
+    </None>
     <None Include="..\distribution\net48\RunDll.Server.exe" Link="net48\RunDll.Server.exe" PackagePath="build\net48">
+      <Pack>true</Pack>
+    </None>
+    <None Include="..\distribution\net48\Newtonsoft.Json.dll" Link="net48\Newtonsoft.Json.dll" PackagePath="build\net48">
       <Pack>true</Pack>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\distribution\net6.0\RunDll.Common.dll" Link="net6.0\RunDll.Common.dll" PackagePath="build\net6.0">
+      <Pack>true</Pack>
+    </None>
     <None Include="..\distribution\net6.0\RunDll.Server.dll" Link="net6.0\RunDll.Server.dll" PackagePath="build\net6.0">
       <Pack>true</Pack>
     </None>
@@ -28,12 +37,26 @@
     <None Include="..\distribution\net6.0\RunDll.Server.runtimeconfig.json" Link="net6.0\RunDll.Server.runtimeconfig.json" PackagePath="build\net6.0">
       <Pack>true</Pack>
     </None>
+    <None Include="..\distribution\net6.0\Newtonsoft.Json.dll" Link="net6.0\Newtonsoft.Json.dll" PackagePath="build\net6.0">
+      <Pack>true</Pack>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <None Include="RunDll.targets" PackagePath="build">
       <pack>true</pack>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Teronis.MSBuild.Packaging.ProjectBuildInPackage" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RunDll.Common\RunDll.Common.csproj" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

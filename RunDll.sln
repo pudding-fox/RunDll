@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDll", "RunDll\RunDll.csp
 		{C481844E-C68C-4CC1-BDFA-A4597D7C4829} = {C481844E-C68C-4CC1-BDFA-A4597D7C4829}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunDll.Tests.Data", "RunDll.Tests.Data\RunDll.Tests.Data.csproj", "{9EAE34FB-3E86-4EF5-8CFE-6154ADA86380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDll.Tests.Data", "RunDll.Tests.Data\RunDll.Tests.Data.csproj", "{9EAE34FB-3E86-4EF5-8CFE-6154ADA86380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunDll.Common", "RunDll.Common\RunDll.Common.csproj", "{2D19C5CC-80B8-4BDE-8453-B100128D1344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9EAE34FB-3E86-4EF5-8CFE-6154ADA86380}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EAE34FB-3E86-4EF5-8CFE-6154ADA86380}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EAE34FB-3E86-4EF5-8CFE-6154ADA86380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D19C5CC-80B8-4BDE-8453-B100128D1344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D19C5CC-80B8-4BDE-8453-B100128D1344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D19C5CC-80B8-4BDE-8453-B100128D1344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D19C5CC-80B8-4BDE-8453-B100128D1344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

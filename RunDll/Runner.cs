@@ -8,7 +8,7 @@ namespace RunDll
 {
     public class Runner : IRunner
     {
-        public static readonly string Location = Path.GetDirectoryName(typeof(Runner).Assembly.Location);
+        public static readonly string Location = typeof(Runner).Assembly.Location;
 
         public Runner(Runtime runtime)
         {
@@ -16,10 +16,10 @@ namespace RunDll
             switch (runtime)
             {
                 case Runtime.NetCore:
-                    directoryName = Path.Combine(Location, "net6.0");
+                    directoryName = Path.Combine(Path.GetDirectoryName(Location), "net6.0");
                     break;
                 case Runtime.NetFramework:
-                    directoryName = Path.Combine(Location, "net48");
+                    directoryName = Path.Combine(Path.GetDirectoryName(Location), "net48");
                     break;
                 default:
                     throw new NotImplementedException();

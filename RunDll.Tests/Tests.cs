@@ -54,5 +54,18 @@ namespace RunDll
                 Assert.AreEqual(expected, actual);
             }
         }
+        [TestMethod]
+        [DataRow(Runtime.NetCore)]
+        [DataRow(Runtime.NetFramework)]
+        public void Test004(Runtime runtime)
+        {
+            using (var runner = new Runner(runtime))
+            {
+                var client = new Client<ITestClass3>(runner);
+                var expected = "Hello Test!";
+                var actual = client.Target.Hello(new TestClass3Request() { Name = "Test" });
+                Assert.AreEqual(expected, actual.Message);
+            }
+        }
     }
 }
